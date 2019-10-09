@@ -1,0 +1,124 @@
+<template>
+  <div class="">
+    <flowers :a="flower"></flowers>
+  </div>
+</template>
+
+<script>
+import flowers from "@/components/model"
+export default {
+  data () {
+    return {
+    	flower:[
+    		{
+    			id:"001",
+    			imgs:"/static/images/flower1.jpg",
+    			title:"红掌"
+    		},
+    		{
+    			id:"002",
+    			imgs:"/static/images/flower2.jpg",
+    			title:"勿忘我"
+    		},
+    		{
+    			id:"003",
+    			imgs:"/static/images/flower3.jpg",
+    			title:"草莓"
+    		},
+    		{
+    			id:"004",
+    			imgs:"/static/images/flower1.jpg",
+    			title:"菊花"
+    		},
+    		{
+    			id:"005",
+    			imgs:"/static/images/flower2.jpg",
+    			title:"费列罗"
+    		},
+    		{
+    			id:"006",
+    			imgs:"/static/images/flower3.jpg",
+    			title:"黄莺"
+    		},
+    		{
+    			id:"007",
+    			imgs:"/static/images/flower1.jpg",
+    			title:"绣球"
+    		},
+    		{
+    			id:"008",
+    			imgs:"/static/images/flower2.jpg",
+    			title:"桔梗"
+    		},
+    		{
+    			id:"009",
+    			imgs:"/static/images/flower3.jpg",
+    			title:"小熊"
+    		},
+    		{
+    			id:"010",
+    			imgs:"/static/images/flower1.jpg",
+    			title:"满天星"
+    		},
+    		{
+    			id:"011",
+    			imgs:"/static/images/flower2.jpg",
+    			title:"玫瑰康乃馨"
+    		},
+    		{
+    			id:"012",
+    			imgs:"/static/images/flower3.jpg",
+    			title:"百合康乃馨"
+    		},
+    		{
+    			id:"013",
+    			imgs:"/static/images/flower1.jpg",
+    			title:"百合玫瑰"
+    		},
+    		{
+    			id:"014",
+    			imgs:"/static/images/flower2.jpg",
+    			title:"向日葵"
+    		},
+    		{
+    			id:"015",
+    			imgs:"/static/images/flower3.jpg",
+    			title:"马蹄莲"
+    		},
+    		{
+    			id:"016",
+    			imgs:"/static/images/flower2.jpg",
+    			title:"扶郎"
+    		},
+    		{
+    			id:"017",
+    			imgs:"/static/images/flower1.jpg",
+    			title:"郁金香"
+    		},
+    		{
+    			id:"018",
+    			imgs:"/static/images/flower2.jpg",
+    			title:"百合"
+    		},
+    		{
+    			id:"019",
+    			imgs:"/static/images/flower3.jpg",
+    			title:"康乃馨"
+    		},
+    		{
+    			id:"020",
+    			imgs:"/static/images/flower1.jpg",
+    			title:"玫瑰"
+    		}
+    	]
+    }
+  },
+  components:{
+  	flowers
+  }
+}
+</script>
+
+<style scoped>
+
+</style>

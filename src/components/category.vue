@@ -1,0 +1,167 @@
+<template>
+  <div class="category">
+  	<nav>
+    	<ul>
+    		<li>
+    			<router-link to="/" tag="div">
+	    			<img src="../../static/images/首页 (1).png" alt="">
+	    			<br>
+	    			首页
+	    		</router-link>
+    		</li>
+    		<li>
+    			<router-link to="/" tag="div">
+	    			<img src="/static/images/分类.png" alt="">
+	    			<br>
+	    			分类
+	    		</router-link>
+    		</li>
+    		<li>
+    			<router-link to="/" tag="div">
+	    			<img src="/static/images/电话 (1).png" alt="">
+	    			<br>
+	    			电话
+	    		</router-link>
+    		</li>
+    		<li>
+    			<router-link to="/shopping" tag="div">
+	    			<img src="/static/images/购物车.png" alt="">
+	    			<br>
+	    			购物车
+	    		</router-link>
+    		</li>
+    		<li>
+    			<router-link to="/login" tag="div">
+	    			<img src="/static/images/我的.png" alt="">
+	    			<br>
+	    			我的
+	    		</router-link>
+    		</li>
+    	</ul>
+    </nav>
+    <header>
+    	<input type="text" placeholder="搜索鲜花、永生花、礼品">
+    </header>
+    <section>
+    	<el-container>
+		  <el-aside width="150px">
+			<ul>
+				<li>
+					<router-link to="/huacai" tag="div">花材</router-link>
+				</li>
+				<li>
+					<router-link to="/yanse" tag="div">颜色</router-link>		
+				</li>
+				<li>
+					<router-link to="/zhishu" tag="div">支数</router-link>
+				</li>
+				<li>
+					<router-link to="/xianhuayongtu" tag="div">鲜花用途</router-link>
+				</li>
+				<li>
+					<router-link to="/xianhualeibie" tag="div">鲜花类别</router-link>
+				</li>
+				<li>
+					<router-link to="/jierixuanhua" tag="div">节日选花</router-link>
+				</li>
+				<li>
+					<router-link to="/songhuaduixiang" tag="div">送花对象</router-link>
+				</li>
+				<li>
+					<router-link to="/jiage" tag="div">价格</router-link>
+				</li>
+				<li>
+					<router-link to="/hualanyongtu" tag="div">花篮用途</router-link>
+				</li>
+				<li>
+					<router-link to="/lvzhihuahui" tag="div">绿植花卉</router-link>
+				</li>
+				<!-- <li v-for="item in items">
+					<router-link tag="div">{{item}}</router-link>
+				</li> -->
+			</ul>
+		  </el-aside>
+		  <el-main>
+		  	<router-view/>
+		  </el-main>
+		</el-container>
+    </section>
+  </div>
+</template>
+
+<script>
+export default {
+  data () {
+    return {
+    	items:["花材","颜色","支数","鲜花用途","鲜花类别","节日选花","送花对象","价格","花篮用途","绿植花卉"]
+    }
+  }
+}
+</script>
+
+<style scoped lang="less">
+.category{
+	height:100vh;
+	nav{
+		width:100%;
+		position:fixed;
+		bottom:0;
+		z-index:100;
+		background-color:#fff;
+		ul{
+			list-style:none;
+			display:flex;
+			padding:0;
+			li{
+				flex-grow:1;
+				text-align:center;
+				img{
+					width:20px;
+				}
+			}
+			li:nth-child(3),li:nth-child(2){
+				color:#fe5722;
+			}
+		}
+	}
+	header{
+		width:100%;
+		height:50px;
+		padding:8px 10px;
+		position:fixed;
+		background-color:#fff;
+		top:0;
+		line-height:50px;
+		input{
+			height:34px;
+			border-radius:17px;
+			padding-left:34px;
+			width:100%;
+			background-color:#f2f2f2;
+			border-style:none;
+		}
+	}
+	section{
+		margin:60px 0;
+		.el-aside{
+			height:500px;
+			overflow:auto;
+			ul{
+				list-style:none;
+				li{
+					height:40px;
+					// border:1px solid red;
+					line-height:40px;
+				}
+			}
+		}
+		.el-main{
+			margin:0;
+			padding:0;
+			height:500px;
+			overflow:auto;
+			font-size:12px;
+		}
+	}
+}
+</style>

@@ -1,0 +1,165 @@
+<template>
+  <div class="">
+    <flowers :a="flower"></flowers>
+  </div>
+</template>
+
+<script>
+import flowers from "@/components/model"
+export default {
+  data () {
+    return {
+    	flower:[
+    		{
+    			id:"001",
+    			imgs:"../../static/images/52.png",
+    			title:"52"
+    		},
+    		{
+    			id:"002",
+    			imgs:"/static/images/39.png",
+    			title:"39"
+    		},
+    		{
+    			id:"003",
+    			imgs:"/static/images/37.png",
+    			title:"37"
+    		},
+    		{
+    			id:"004",
+    			imgs:"/static/images/7.png",
+    			title:"07"
+    		},
+    		{
+    			id:"005",
+    			imgs:"/static/images/4.png",
+    			title:"04枝"
+    		},
+    		{
+    			id:"006",
+    			imgs:"/static/images/1.png",
+    			title:"01枝"
+    		},
+    		{
+    			id:"007",
+    			imgs:"/static/images/",
+    			title:"一大扎"
+    		},
+    		{
+    			id:"008",
+    			imgs:"/static/images/2.png",
+    			title:"02枝"
+    		},
+    		{
+    			id:"009",
+    			imgs:"/static/images/3.png",
+    			title:"03枝"
+    		},
+    		{
+    			id:"010",
+    			imgs:"/static/images/56.png",
+    			title:"56枝"
+    		},
+    		{
+    			id:"011",
+    			imgs:"/static/images/5.png",
+    			title:"05枝"
+    		},
+    		{
+    			id:"012",
+    			imgs:"/static/images/8.png",
+    			title:"08枝"
+    		},
+    		{
+    			id:"013",
+    			imgs:"/static/images/30.png",
+    			title:"30枝"
+    		},
+    		{
+    			id:"014",
+    			imgs:"/static/images/10.png",
+    			title:"10枝"
+    		},
+    		{
+    			id:"015",
+    			imgs:"/static/images/40.png",
+    			title:"40枝"
+    		},
+    		{
+    			id:"016",
+    			imgs:"/static/images/48.png",
+    			title:"48枝"
+    		},
+    		{
+    			id:"017",
+    			imgs:"/static/images/6.png",
+    			title:"06枝"
+    		},
+    		{
+    			id:"018",
+    			imgs:"/static/images/20.png",
+    			title:"20枝"
+    		},
+    		{
+    			id:"019",
+    			imgs:"/static/images/26.png",
+    			title:"26枝"
+    		},
+    		{
+    			id:"020",
+    			imgs:"/static/images/18.png",
+    			title:"18枝"
+    		},
+    		{
+    			id:"021",
+    			imgs:"/static/images/25.png",
+    			title:"25枝"
+    		},
+    		{
+    			id:"022",
+    			imgs:"/static/images/24.png",
+    			title:"24枝"
+    		},
+    		{
+    			id:"023",
+    			imgs:"/static/images/22.png",
+    			title:"22枝"
+    		},
+    		{
+    			id:"024",
+    			imgs:"/static/images/99.png",
+    			title:"99枝以上"
+    		},
+    		{
+    			id:"025",
+    			imgs:"/static/images/990.png",
+    			title:"99枝"
+    		},
+    		{
+    			id:"026",
+    			imgs:"/static/images/66.png",
+    			title:"66枝"
+    		},
+    		{
+    			id:"027",
+    			imgs:"/static/images/50.png",
+    			title:"50枝"
+    		},
+    		{
+    			id:"028",
+    			imgs:"/static/images/36.png",
+    			title:"36枝"
+    		}
+
+    	]
+    }
+  },
+  components:{
+  	flowers
+  }
+}
+</script>
+
+<style scoped>
+
+</style>
