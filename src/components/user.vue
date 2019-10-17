@@ -17,7 +17,7 @@
 	    		</router-link>
     		</li>
     		<li>
-    			<router-link to="/" tag="div">
+    			<router-link to="" tag="div">
 	    			<img src="/static/images/电话 (1).png" alt="">
 	    			<br>
 	    			电话
@@ -39,29 +39,7 @@
     		</li>
     	</ul>
     </nav>
-    <header>
-    	<router-link to="/" tag="div">
-    		<i class="el-icon-arrow-left"></i>
-    	</router-link>
-    	个人中心
-    	<div class="more">
-    		<i class="el-icon-more" @click="fun1"></i>
-    		<div class="morebox" v-show="isShow">
-    			<router-link to="/" tag="div">
-    				<div class="moreImg"><img src="../../static/images/首页 (1).png" alt=""></div><div class="moreFont">首页</div>
-    			</router-link>
-    			<router-link to="/category" tag="div">
-    				<div class="moreImg"><img src="../../static/images/首页 (1).png" alt=""></div><div class="moreFont">分类</div>
-    			</router-link>
-    			<router-link to="/shopping" tag="div">
-    				<div class="moreImg"><img src="../../static/images/首页 (1).png" alt=""></div><div class="moreFont">购物车</div>
-    			</router-link>
-    			<router-link to="/user" tag="div">
-    				<div class="moreImg"><img src="../../static/images/首页 (1).png" alt=""></div><div class="moreFont">我的</div>
-    			</router-link>
-    		</div>
-    	</div>
-    </header>
+    <headers :titles="title"></headers>
     <section>
     	<div class="top">
     		<div class="userPhoto">
@@ -69,32 +47,60 @@
     		</div>
     		ism_17862664828
     		<br>
-    		<img src="../../static/images/jifen.png" alt="">
+    		<br>
+    		<img src="../../static/images/jifen.png" alt=""> 0 <router-link to="/rule">积分规则<i class="el-icon-caret-right"></i></router-link>
+    		<input type="button" value="签到">
     	</div>
-    	<div class="center"></div>
+    	<div class="center">
+    		<router-link to="/order" tag="div">
+    			<img src="../../static/images/待付款.png" alt="">
+    			<br>
+    			待付款
+	    	</router-link>
+	    	<router-link to="/order" tag="div">
+    			<img src="../../static/images/待发货.png" alt="">
+    			<br>
+    			待发货
+	    	</router-link>
+    		<router-link to="/order" tag="div">
+    			<img src="../../static/images/待收货.png" alt="">
+    			<br>
+    			待收货
+	    	</router-link>
+    		<router-link to="/order" tag="div">
+    			<img src="../../static/images/我的订单.png" alt="">
+    			<br>
+    			我的订单
+    		</router-link>
+    	</div>
     	<div class="bottom">
-    		
+    		<router-link to="/address" tag="div">
+    			<i class="el-icon-map-location"></i>
+    			地址管理
+    		</router-link>
+    		<router-link to="" tag="div">
+    			<i class="el-icon-service"></i>
+    			在线客服
+    		</router-link>
+    		<div>
+    			<i class="el-icon-phone-outline"></i>
+    			联系我们
+    		</div>
     	</div>
     </section>
   </div>
 </template>
 
 <script>
+import headers from '@/components/headers'
 export default {
   data () {
     return {
-    	isShow:false,
-    	money:0,
+    	title:"个人中心"
     }
   },
-  methods:{
-  	fun1(){
-  		if(this.isShow==false){
-  			this.isShow=true
-  		}else{
-  			this.isShow=false
-  		}
-  	}
+  components:{
+  	headers
   }
 }
 </script>
@@ -122,50 +128,70 @@ export default {
 			}
 		}
 	}
-	header{
-		position:relative;
-		width:100%;
-		height:46px;
-		line-height:46px;
-		border-bottom:1px solid #aaa;
-		div i{
-			margin:15px;
-			float:left;
-		}
-		.more{
-			padding:0;
-			float:right;
-			.morebox{
-				width:130px;
-				height:160px;
-				background-color:#191919;
-				position:absolute;
-				right:0;
-				top:50px;
+	section{
+		background-color:#f6f6f6;
+		.top{
+			background-color:#fff;
+			text-align:left;
+			padding: 20px 10px;
+			font-weight:bold;
+			.userPhoto{
+				width: 60px;
+				height:60px;
+				margin:0 10px;
+				float:left;
+				img{
+					width: 100%;
+				}
+			}
+			&>img{
+				width:16px;
+				height:16px;
+			}
+			a{
+				color:#000;
+				text-decoration:none;
+				font-size:12px;
+				font-weight:normal;
+			}
+			input{
+				width:60px;
+				height:30px;
+				border-radius:15px;
+				background-color:#fa764d;
+				float:right;
+				border-style:none;
 				color:#fff;
-				div{
-					margin:0;
-					height:40px;
-					div{
-						height:40px;
-						// border:1px solid red;
-						display:inline-block;
-						img{
-							width:14px;
-							height:14px;
-						}
-						color:#fff;
-					}
-					.moreImg{
-						width: 40px;
-						height:40px;
-					}
-					.moreFont{
-						width:90px;
-						height:40px;
-						text-align:left;
-						font-size:14px;
-					}
+			}
+		}
+		.center{
+			background-color:#fff;
+			margin:10px 0;
+			display:flex;
+			width:100%;
+			height:80px;
+			div{
+				// border:1px solid red;
+				flex-grow:1;
+				padding:10px;
+				img{
+					height:26px;
+				}
+			}
+		}
+		.bottom{
+			background-color:#fff;
+			width:100%;
+			div{
+				// padding:0 10px;
+				text-align:left;
+				width:100%;
+				height:54px;
+				border-bottom:1px solid #eee;
+				line-height:54px;
+				i{
+					font-size:25px;
+					margin-left:10px;
 				}
 			}
 		}

@@ -1,39 +1,17 @@
 <template>
   <div class="loginPho">
-    <header>
-    	<router-link to="/" tag="div">
-    		<i class="el-icon-arrow-left"></i>
-    	</router-link>
-    	验证码登录
-    	<div class="more">
-    		<i class="el-icon-more" @click="fun1"></i>
-    		<div class="morebox" v-show="isShow">
-    			<router-link to="/" tag="div">
-    				<div class="moreImg"><img src="../../static/images/首页 (1).png" alt=""></div><div class="moreFont">首页</div>
-    			</router-link>
-    			<router-link to="/category" tag="div">
-    				<div class="moreImg"><img src="../../static/images/首页 (1).png" alt=""></div><div class="moreFont">分类</div>
-    			</router-link>
-    			<router-link to="/shopping" tag="div">
-    				<div class="moreImg"><img src="../../static/images/首页 (1).png" alt=""></div><div class="moreFont">购物车</div>
-    			</router-link>
-    			<router-link to="/login" tag="div">
-    				<div class="moreImg"><img src="../../static/images/首页 (1).png" alt=""></div><div class="moreFont">我的</div>
-    			</router-link>
-    		</div>
-    	</div>
-    </header>
+    <headers :titles="title"></headers>
 	<section>
 		<div class="imgs"><img src="../../static/images/ismei.png" alt=""></div>
 		<br>
-		<input type="text" placeholder="用户名/已验证手机号">
+		<input type="text" placeholder="用户名/已验证手机号" v-model="user">
 		<br>
 		<div class="pwd">
-			<input type="password" placeholder="请输入验证码">
-			<router-link to="/forgetPwd"><button type="button">忘记密码</button></router-link>
+			<input type="password" placeholder="请输入验证码" v-model="vernum">
+			<button type="button" @click="getMa">获取验证码</button>
 		</div>
 		<br>
-		<input type="button" value="登录" class="butt">
+		<input type="button" value="登录" class="butt" @click="login">
 		<div class="nav">
 			<router-link to="/login"><button type="button">账号密码登录</button></router-link>
 			<router-link to="/register"><input type="button" value="立即注册"></router-link>
@@ -43,19 +21,38 @@
 </template>
 
 <script>
+import headers from '@/components/headers'
 export default {
   data () {
     return {
-    	isShow:false,
-    	money:0,
+    	title:"验证码登陆",
+    	num:"",
+    	vernum:"",
+    	user:""
     }
   },
+  components:{
+  	headers
+  },
   methods:{
-  	fun1(){
-  		if(this.isShow==false){
-  			this.isShow=true
-  		}else{
-  			this.isShow=false
+  	getMa(){
+  		if(this.user!=""){
+	  		for(var i=0;i<localStorage.length;i++){
+	  			if(this.user==localStorage.key(i)){
+	  				this.num=parseInt(Math.random()*10000)
+	  				alert(this.num)
+	  			}
+	  		}
+  		}
+  	},
+  	login(){
+  		if(this.vernum==this.num){
+  			for(var i=0;i<localStorage.length;i++){
+	  			if(this.user==localStorage.key(i)){
+	  				location.href="#/user"
+	  				sessionStorage.setItem(this.user,localStorage.getItem(this.user))
+	  			}
+	  		}	
   		}
   	}
   }
@@ -63,54 +60,6 @@ export default {
 </script>
 
 <style scoped lang="less">
-	header{
-		position:relative;
-		width:100%;
-		height:46px;
-		line-height:46px;
-		border-bottom:1px solid #aaa;
-		div i{
-			margin:15px;
-			float:left;
-		}
-		.more{
-			padding:0;
-			float:right;
-			.morebox{
-				width:130px;
-				height:160px;
-				background-color:#191919;
-				position:absolute;
-				right:0;
-				top:50px;
-				color:#fff;
-				div{
-					margin:0;
-					height:40px;
-					div{
-						height:40px;
-						// border:1px solid red;
-						display:inline-block;
-						img{
-							width:14px;
-							height:14px;
-						}
-						color:#fff;
-					}
-					.moreImg{
-						width: 40px;
-						height:40px;
-					}
-					.moreFont{
-						width:90px;
-						height:40px;
-						text-align:left;
-						font-size:14px;
-					}
-				}
-			}
-		}
-	}
 	section{
 		padding:0 20px;
 		.imgs{

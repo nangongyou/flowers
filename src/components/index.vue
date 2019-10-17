@@ -31,26 +31,26 @@
 	    		</router-link>
     		</li>
     		<li>
-    			<router-link to="/user" tag="div">
+    			<div @click="butt">
 	    			<img src="/static/images/我的.png" alt="">
 	    			<br>
 	    			我的
-	    		</router-link>
+	    		</div>
     		</li>
     	</ul>
     </nav>
     <header>
-	    <img src="/static/images/ismei.png" alt=""><input type="search" placeholder="搜索鲜花、永生花、礼品"><router-link to="/login"><button type="button">登录</button></router-link>
+	    <img src="/static/images/ismei.png" alt=""><input type="search" placeholder="搜索鲜花、永生花、礼品"><button type="button" @click="butt">{{msg}}</button>
     </header>
     <aside>
-    	<el-button type="text" @click="dialogVisible = true">
+    	<!-- <el-button type="text" @click="dialogVisible = true"> -->
     		<img src="../../static/images/在线客服.png" alt="">
     		<h3>
     			在<br>线<br>客<br>服
     		</h3>
-    	</el-button>
+    	<!-- </el-button> -->
 
-		<el-dialog
+		<!-- <el-dialog
 		  title="提示"
 		  :visible.sync="dialogVisible"
 		  width="30%"
@@ -60,88 +60,88 @@
 		    <el-button @click="dialogVisible = false">取 消</el-button>
 		    <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
 		  </span>
-		</el-dialog>
+		</el-dialog> -->
 	</aside>
 	<div class="comeTop">
 		<a href="#"><i class="el-icon-top"></i></a>
 	</div>
-    <div class="el-carousel">
+	<router-link to="/search" tag="div" class="el-carousel">
 	    <el-carousel trigger="click" height="250px">
 	      <el-carousel-item v-for="item in img" :key="item">
 	        <img :src="item" alt="">
 	      </el-carousel-item>
 	    </el-carousel>
-	</div>
+	</router-link>
 	<div class="nav"> 
 		<ul>
-			<li>
+			<router-link to="/search" tag="li">
 				<img src="/static/images/allflowers.jpg" alt="">
-			</li>
-			<li>
+			</router-link>
+			<router-link to="/search" tag="li">
 				<img src="/static/images/flowerbox.jpg" alt="">
-			</li>
-			<li>
+			</router-link>
+			<router-link to="/search" tag="li">
 				<img src="/static/images/greentree.jpg" alt="">
-			</li>
-			<li>
+			</router-link>
+			<router-link to="/search" tag="li">
 				<img src="/static/images/alllife.jpg" alt="">
-			</li>
+			</router-link>
 		</ul>
 		<div class="hotFlower">
-			<div>
+			<router-link to="/goods" tag="div">
 				<img src="../../static/images/flower1.jpg" alt="">
 				<div>
 					爱你不是两三天
 					<br>
 					&yen;159.00
 				</div>
-			</div>
-			<div>
+			</router-link>
+			<router-link to="/goods" tag="div">
 				<img src="../../static/images/flower2.jpg" alt="">
 				<div>
 					暖暖的祝福
 					<br>
 					&yen;219.00
 				</div>
-			</div>
-			<div>
+			</router-link>
+			<router-link to="/goods" tag="div">
 				<img src="../../static/images/flower3.jpg" alt="">
 				<div>
 					缪斯女神
 					<br>
 					&yen;199.00
 				</div>
-			</div>
+			</router-link>
 		</div>
 	</div>
 	<div class="obj">
 		<div class="head">
 			送花对象
-			<a href="">更多<i class="el-icon-arrow-right"></i></a>
+			<router-link to="/search">更多<i class="el-icon-arrow-right"></i></router-link>
 		</div>
 		<div class="sect">
-			<div>
+			<router-link to="/search" tag="div">
 				<img src="../../static/images/obj1.jpg" alt="">
-			</div>
-			<div>
+			</router-link>
+			<router-link to="/search" tag="div">
 				<img src="../../static/images/obj2.jpg" alt="">
-			</div>
-			<div>
+			</router-link>
+			<router-link to="/search" tag="div">
 				<img src="../../static/images/obj3.jpg" alt="">
-			</div>
+			</router-link>
 		</div>
 	</div>
 	<div class="loveFlower">
 		<div class="head">
 			爱情鲜花
-			<a href="">更多<i class="el-icon-arrow-right"></i></a>
+			<router-link to="/search">更多<i class="el-icon-arrow-right"></i></router-link>
 		</div>
 		<div class="section">
-			<div v-for="(item,i) in imgs">
-				<img :src="item" alt="">
-				<div>{{titles[i]}}</div>
-				<div class="price">{{price[i]}}</div>
-			</div>
+			<router-link to="/goods" tag="div" v-for="(item,i) in products" :key="i">
+				<img :src="item.img" alt="">
+				<div>{{item.title}}</div>
+				<div class="price">{{item.price}}</div>
+			</router-link>
 		</div>
 	</div>
 	<footer>
@@ -161,31 +161,102 @@ export default {
 	    return {
 	    	img:["/static/images/lunbotu1.jpg","/static/images/lunbotu2.jpg","/static/images/lunbotu3.jpg","/static/images/lunbotu4.jpg","/static/images/lunbotu5.jpg",],
 	    	dialogVisible: false,
-	    	imgs:["/static/images/flower1.jpg","/static/images/flower2.jpg","/static/images/flower3.jpg","/static/images/flower1.jpg","/static/images/flower2.jpg","/static/images/flower3.jpg","/static/images/flower1.jpg","/static/images/flower2.jpg","/static/images/flower3.jpg","/static/images/flower1.jpg"],
-	    	titles:["携手一辈子","一生中只爱","甜美公主","甜蜜之语","秘密花园","一往情深","情有独钟","爱你到老","宝贝我爱你","暖暖的祝福"],
-	    	price:["159.00","189.00","219.00","229.00","299.00","309.00","169.00","309.00","529.00","219.00"]
+	    	msg:"登录",
+	    	products:[
+	    			{
+	    				id:"001",
+	    				img:"/static/images/flower1.jpg",
+	    				title:"携手一辈子",
+	    				price:"159.00",
+	    			},
+	    			{
+	    				id:"002",
+	    				img:"/static/images/flower2.jpg",
+	    				title:"一生中只爱",
+	    				price:"189.00",
+	    			},
+	    			{
+	    				id:"003",
+	    				img:"/static/images/flower3.jpg",
+	    				title:"甜美公主",
+	    				price:"219.00",
+	    			},
+	    			{
+	    				id:"004",
+	    				img:"/static/images/flower1.jpg",
+	    				title:"甜蜜之语",
+	    				price:"229.00",
+	    			},
+	    			{
+	    				id:"005",
+	    				img:"/static/images/flower2.jpg",
+	    				title:"秘密花园",
+	    				price:"299.00",
+	    			},
+	    			{
+	    				id:"006",
+	    				img:"/static/images/flower3.jpg",
+	    				title:"一往情深",
+	    				price:"309.00",
+	    			},
+	    			{
+	    				id:"007",
+	    				img:"/static/images/flower1.jpg",
+	    				title:"情有独钟",
+	    				price:"169.00",
+	    			},
+	    			{
+	    				id:"008",
+	    				img:"/static/images/flower2.jpg",
+	    				title:"爱你到老",
+	    				price:"309.00",
+	    			},
+	    			{
+	    				id:"009",
+	    				img:"/static/images/flower3.jpg",
+	    				title:"宝贝我爱你",
+	    				price:"529.00",
+	    			},
+	    			{
+	    				id:"010",
+	    				img:"/static/images/flower1.jpg",
+	    				title:"暖暖的祝福",
+	    				price:"219.00",
+	    			}
+	    		]
 	    }
   	},
+  	mounted(){
+  		for(var i=0;i<localStorage.length;i++){
+  			for(var j=0;j<sessionStorage.length;j++){
+  				if(localStorage.key(i)==sessionStorage.key(j) && localStorage.getItem(localStorage.key(i))==sessionStorage.getItem(sessionStorage.key(j))){
+  					console.log("123")
+  					return this.msg="ism-133"
+  				}
+  			}
+  		}
+  		this.msg="登录"
+  	},
   	methods: {
-      	handleClose(done) {
-       		this.$confirm('确认关闭？')
-	          .then(_ => {
-	            done();
-	          })
-	          .catch(_ => {});
-	      	}
-  		 }	
+      	butt(){
+      		if(this.msg=="ism-133"){
+      			window.location.href="#/user"
+      		}
+      		else{
+      			window.location.href="#/login"
+      		}
+      	}
+  	}	
 }
 </script>
 
 <style scoped lang="less">
 .index{
-	// background-color:#f2f2f2;
 	nav{
 		width:100%;
 		position:fixed;
 		bottom:0;
-		z-index:100;
+		z-index:10000;
 		background-color:#fff;
 		ul{
 			list-style:none;
@@ -231,6 +302,8 @@ export default {
 			color:#fe5722;
 			float:right;
 			height:36px;
+			overflow:hidden;
+			white-space:nowrap;
 		}
 	}
 	aside{
@@ -260,8 +333,9 @@ export default {
 		line-height:50px;
 	}
 	.el-carousel{
+		width:100%;
 		img{
-			height:250px;
+			width:100%;
 		}
 	}
 	.nav{
@@ -348,7 +422,7 @@ export default {
 			flex-wrap:wrap;
 			justify-content:space-around;
 			div{
-				width:200px;
+				width:47%;
 				margin:5px;
 				text-align:left;
 				img{

@@ -1,61 +1,64 @@
 <template>
   <div class="register">
-    <header>
-    	<router-link to="/" tag="div">
-    		<i class="el-icon-arrow-left"></i>
-    	</router-link>
-    	注册
-    	<div class="more">
-    		<i class="el-icon-more" @click="fun1"></i>
-    		<div class="morebox" v-show="isShow">
-    			<router-link to="/" tag="div">
-    				<div class="moreImg"><img src="../../static/images/首页 (1).png" alt=""></div><div class="moreFont">首页</div>
-    			</router-link>
-    			<router-link to="/category" tag="div">
-    				<div class="moreImg"><img src="../../static/images/首页 (1).png" alt=""></div><div class="moreFont">分类</div>
-    			</router-link>
-    			<router-link to="/shopping" tag="div">
-    				<div class="moreImg"><img src="../../static/images/首页 (1).png" alt=""></div><div class="moreFont">购物车</div>
-    			</router-link>
-    			<router-link to="/login" tag="div">
-    				<div class="moreImg"><img src="../../static/images/首页 (1).png" alt=""></div><div class="moreFont">我的</div>
-    			</router-link>
-    		</div>
-    	</div>
-    </header>
-	<section>
-		<div class="imgs"><img src="../../static/images/ismei.png" alt=""></div>
-		<br>
-		<input type="text" placeholder="注册手机号">
-		<br>
-		<div class="pwd">
-			<input type="text" placeholder="请输入收到的验证码">
-			<button type="button">获取验证码</button>
-		</div>
-		<input type="password" placeholder="设置新密码">
-		<br>
-		<input type="button" value="登录" class="butt">
-		<div class="nav">
-			<router-link to="login"><button type="button">已有账号！去登录</button></router-link>
-		</div>
-	</section>
+   	<headers :titles="title"></headers>
+   	<form action="">
+		<section>
+			<div class="imgs"><img src="../../static/images/ismei.png" alt=""></div>
+			<br>
+			<input type="tel" placeholder="注册手机号" path="^1[3-9]\d{9}$" v-model="telnum">
+			<br>
+			<div class="pwd">
+				<input type="text" placeholder="请输入收到的验证码" v-model="vernum">
+				<button type="button" @click="getMa">获取验证码</button>
+			</div>
+			<input type="password" placeholder="设置新密码" v-model="pwd">
+			<br>
+			<input type="button" value="登录" class="butt" @click="subbutt">
+			<div class="nav">
+				<router-link to="login"><button type="button">已有账号！去登录</button></router-link>
+			</div>
+		</section>
+	</form>
   </div>
 </template>
 
 <script>
+import headers from '@/components/headers'
 export default {
   data () {
     return {
-    	isShow:false,
-    	money:0,
+    	title:"注册",
+    	telnum:"",
+    	num:"",
+    	vernum:"",
+    	pwd:""
     }
   },
+  components:{
+  	headers
+  },
   methods:{
-  	fun1(){
-  		if(this.isShow==false){
-  			this.isShow=true
-  		}else{
-  			this.isShow=false
+  	getMa(){
+  		var path = /^1[3-9]\d{9}$/g
+  		if(this.telnum.match(path)){
+	  		this.num=parseInt(Math.random()*9000+1000)
+	  		alert(this.num)
+  		}
+  		else{
+  			alert("手机号码格式不对")
+  		}
+  	},
+  	subbutt(){
+  		if(this.vernum==this.num && this.pwd!=""){
+  			for(var i=0;i<localStorage.length;i++){
+  				if(this.telnum==localStorage.key(i)){
+  					this.vernum=""
+  					this.pwd=""
+  					return alert("该账号已注册")
+  				}
+  			}
+  			localStorage.setItem(this.telnum,this.pwd)
+  			return window.location.href="#/login"
   		}
   	}
   }
@@ -63,53 +66,6 @@ export default {
 </script>
 
 <style scoped lang="less">
-	header{
-		position:relative;
-		width:100%;
-		height:46px;
-		line-height:46px;
-		border-bottom:1px solid #aaa;
-		div i{
-			margin:15px;
-			float:left;
-		}
-		.more{
-			padding:0;
-			float:right;
-			.morebox{
-				width:130px;
-				height:160px;
-				background-color:#191919;
-				position:absolute;
-				right:0;
-				top:50px;
-				color:#fff;
-				div{
-					margin:0;
-					height:40px;
-					div{
-						height:40px;
-						display:inline-block;
-						img{
-							width:14px;
-							height:14px;
-						}
-						color:#fff;
-					}
-					.moreImg{
-						width: 40px;
-						height:40px;
-					}
-					.moreFont{
-						width:90px;
-						height:40px;
-						text-align:left;
-						font-size:14px;
-					}
-				}
-			}
-		}
-	}
 	section{
 		padding:0 20px;
 		.imgs{
@@ -124,7 +80,7 @@ export default {
 				margin-top:32px;
 			}
 		}
-		[type=text]{
+		[type=tel]{
 			height:34px;
 			width:100%;
 			margin:10px 0px;

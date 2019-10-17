@@ -18,7 +18,18 @@ import forgetPwd from "@/components/forgetPwd"
 import register from "@/components/register"
 import loginPho from "@/components/loginPho"
 import user from "@/components/user"
-
+import rule from "@/components/rule"
+import address from "@/components/address"
+import editAddress from "@/components/editAddress"
+import order from "@/components/order"
+import search from "@/components/search"
+import comprehensive from "@/components/comprehensive"
+import time from "@/components/time"
+import price from "@/components/price"
+import sales from "@/components/sales"
+import goods from "@/components/goods"
+import allComments from "@/components/allComments"
+import ordergoods from "@/components/ordergoods"
 
 Vue.use(Router)
 
@@ -116,6 +127,69 @@ export default new Router({
         path:'/user',
         name:'user',
         component:user
+    },
+    {
+        path:'/rule',
+        name:'rule',
+        component:rule
+    },
+    {
+        path:'/address',
+        name:'address',
+        component:address
+    },
+    {
+        path:'/editAddress',
+        name:'editAddress',
+        component:editAddress
+    },
+    {
+        path:'/order',
+        name:'order',
+        component:order
+    },
+    {
+        path:"/search",
+        name:"search",
+        component:search,
+        children:[
+             {
+                path:'/comprehensive',
+                name:'comprehensive',
+                component:comprehensive
+            },
+            {
+                path:'/sales',
+                name:'sales',
+                component:sales
+            },
+            {
+                path:'/time',
+                name:'time',
+                component:time
+            },
+            {
+                path:'/price',
+                name:'price',
+                component:price
+            }
+        ],
+        redirect:"/comprehensive"
+    },
+    {
+        path:"/goods",
+        name:"goods",
+        component:goods
+    },
+    {
+        path:"/allComments",
+        name:"allComments",
+        component:allComments
+    },
+    {
+        path:"/ordergoods",
+        name:"ordergoods",
+        component:ordergoods
     }
   ]
 })

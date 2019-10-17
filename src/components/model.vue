@@ -1,11 +1,11 @@
 <template>
-    <div class="flowers">
-  		<div v-for="i in a">
+    <div class="model">
+  		<router-link to="/search" tag="div" v-for="(item,i) in a" :key="i">
   			<div class="imgs">
-  				<img :src="i.imgs" alt="">
+  				<img :src="item.imgs" alt="">
   			</div>
-  			<p>{{i.title}}</p>
-  		</div>
+  			<p>{{item.title}}</p>
+  		</router-link>
   		<div v-for="j in abc"></div>
   	</div>
 </template>
@@ -27,7 +27,7 @@ export default {
 </script>
 
 <style scoped lang="less">
-	.flowers{
+	.model{
 		display:flex;
 		flex-wrap:wrap;
 		justify-content:space-around;

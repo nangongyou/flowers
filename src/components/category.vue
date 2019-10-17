@@ -44,7 +44,7 @@
     </header>
     <section>
     	<el-container>
-		  <el-aside width="150px">
+		  <el-aside width="130px">
 			<ul>
 				<li>
 					<router-link to="/huacai" tag="div">花材</router-link>
@@ -76,9 +76,6 @@
 				<li>
 					<router-link to="/lvzhihuahui" tag="div">绿植花卉</router-link>
 				</li>
-				<!-- <li v-for="item in items">
-					<router-link tag="div">{{item}}</router-link>
-				</li> -->
 			</ul>
 		  </el-aside>
 		  <el-main>
@@ -127,31 +124,38 @@ export default {
 	header{
 		width:100%;
 		height:50px;
-		padding:8px 10px;
 		position:fixed;
 		background-color:#fff;
 		top:0;
 		line-height:50px;
+		border:1px solid #ddd;
+		text-align:center;
 		input{
 			height:34px;
 			border-radius:17px;
 			padding-left:34px;
-			width:100%;
+			width:90%;
 			background-color:#f2f2f2;
 			border-style:none;
 		}
 	}
 	section{
+		font-size:14px;
 		margin:60px 0;
 		.el-aside{
 			height:500px;
 			overflow:auto;
+			width:100px;
 			ul{
 				list-style:none;
+				background-color:#f8f8f8;
 				li{
 					height:40px;
-					// border:1px solid red;
 					line-height:40px;
+					.router-link-active{
+						color:red;
+						background-color:#fff;
+					}
 				}
 			}
 		}
@@ -160,7 +164,6 @@ export default {
 			padding:0;
 			height:500px;
 			overflow:auto;
-			font-size:12px;
 		}
 	}
 }
