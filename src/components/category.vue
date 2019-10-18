@@ -31,11 +31,11 @@
 	    		</router-link>
     		</li>
     		<li>
-    			<router-link to="/login" tag="div">
+    			<div @click="butt">
 	    			<img src="/static/images/我的.png" alt="">
 	    			<br>
 	    			我的
-	    		</router-link>
+	    		</div>
     		</li>
     	</ul>
     </nav>
@@ -92,6 +92,18 @@ export default {
     return {
     	items:["花材","颜色","支数","鲜花用途","鲜花类别","节日选花","送花对象","价格","花篮用途","绿植花卉"]
     }
+  },
+  methods:{
+  	butt(){
+  		for(var i=0;i<localStorage.length;i++){
+  			for(var j=0;j<sessionStorage.length;j++){
+  				if(localStorage.key(i)==sessionStorage.key(j) && localStorage.getItem(localStorage.key(i))==sessionStorage.getItem(sessionStorage.key(j))){
+  					return window.location.href="#/user"
+  				}
+  			}
+  		}
+  		window.location.href="#/login"
+  	}
   }
 }
 </script>
