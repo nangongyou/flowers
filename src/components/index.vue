@@ -426,7 +426,7 @@ export default {
 				margin:5px;
 				text-align:left;
 				img{
-					width:200px;
+					width:100%;
 				}
 				.price{
 					color:red;
