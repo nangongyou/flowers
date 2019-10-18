@@ -155,7 +155,7 @@ export default {
 		font-size:14px;
 		margin:60px 0;
 		.el-aside{
-			height:500px;
+			height:100vh;
 			overflow:auto;
 			width:100px;
 			ul{
@@ -174,7 +174,7 @@ export default {
 		.el-main{
 			margin:0;
 			padding:0;
-			height:500px;
+			height:100vh;
 			overflow:auto;
 		}
 	}
